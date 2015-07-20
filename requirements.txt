@@ -6,3 +6,4 @@ cv2
 sphinx
 facerec
 pg2
+openpyxl # excel reports
