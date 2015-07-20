@@ -1,0 +1,8 @@
+numpy
+PIL
+scipy
+matplotlib
+cv2
+sphinx
+facerec
+pg2

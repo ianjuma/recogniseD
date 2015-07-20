@@ -1,0 +1,26 @@
+# Python compiled byte code
+*.pyc
+*.log
+
+# Jetbrains Stuff
+*.iml
+.idea
+.env
+# SQLite3 database
+*.sqlite3
+*.pkl
+
+# Node modules
+node_modules/
+
+# Bower components
+static/bower_components/
+
+# Uglified JavaScript
+dist/
+
+# Staticfiles
+staticfiles/
+
+# faces
+faces/
