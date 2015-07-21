@@ -39,7 +39,9 @@ def mark_student_absent(student_id, class_id):
     try:
         con = psycopg2.connect(database='recognise', user='synod')
         cur = con.cursor()
-        cur.execute("UPDATE %s SET classes_missed = %s WHERE id = %s;", % [class_id, 1, student_id,])
+        stmt = "UPDATE {0} SET classes_missed = {1} WHERE id = {3};".format(class_id, 1, student_id)
+
+        cur.execute(stmt)
 
     except psycopg2.DatabaseError, e:
         if con:

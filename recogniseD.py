@@ -40,6 +40,8 @@ class App(object):
                                   interpolation=cv2.INTER_CUBIC)
                 # Get a prediction from the model:
                 prediction = self.model.predict(face)[0]
+                print self.model.subject_names[prediction]
+
                 # grab prediction and store in redis - compare lists
                 # Draw the face area in image:
                 cv2.rectangle(image_out, (x0, y0), (x1, y1), (0, 255, 0), 2)

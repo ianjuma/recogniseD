@@ -2,7 +2,8 @@ numpy
 PIL
 scipy
 matplotlib
-cv2
 sphinx
-facerec
-pg2
+psycopg2
+
+# facerec - build
+# cv2 - build

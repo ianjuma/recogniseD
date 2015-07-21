@@ -47,9 +47,10 @@ class generateCSVReport():
             writer = csv.writer(fd)
             result = get_class_list(self.class_id)
 
-            writer.writerow(('# ID No', 'Student name', 'Classes Missed', 'Dates Missed'))
+            writer.writerow(
+                ('# ID No', 'Student name', 'Classes Missed', 'Dates Missed'))
             for row in result:
-                writer.writerow((row[0], row[1], row[2],'null'))
+                writer.writerow((row[0], row[1], row[2], 'null'))
 
         except csvException, e:
             raise e
