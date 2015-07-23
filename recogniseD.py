@@ -25,6 +25,7 @@ class App(object):
         self.cam = create_capture(camera_id)
 
     def run(self):
+        last_face_recognised = 0
         while True:
             ret, frame = self.cam.read()
             # Resize the frame to half the original size for speeding up the detection process:
@@ -40,9 +41,18 @@ class App(object):
                                   interpolation=cv2.INTER_CUBIC)
                 # Get a prediction from the model:
                 prediction = self.model.predict(face)[0]
-                print self.model.subject_names[prediction]
+                # class_list = set([1, 2, 3, 4]) - from the folders db-level
+                attendees = set([])
+
+                if last_face_recognised != self.model.subject_names[prediction]:
+                    attendees.add(self.model.subject_names[prediction])
+                    print 'adding'
+                    last_face_recognised = self.model.subject_names[prediction]
+                    print 'Attending -> %s', [attendees]
 
                 # grab prediction and store in redis - compare lists
+                # grab last face variable - only store in imgae var is diff -
+                # then add to list - grab date missed - count too
                 # Draw the face area in image:
                 cv2.rectangle(image_out, (x0, y0), (x1, y1), (0, 255, 0), 2)
                 # Draw the predicted name (folder name...):
