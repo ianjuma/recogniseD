@@ -4,6 +4,8 @@ scipy
 matplotlib
 sphinx
 psycopg2
+redis
+hiredis
 
 # facerec - build
 # cv2 - build

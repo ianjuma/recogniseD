@@ -61,8 +61,9 @@ class App(object):
 
             cv2.imshow('recognised', image_out)
             # Show image & exit on escape:
-            ch = cv2.waitKey(10)
-            if ch == 27:
+            ch = cv2.waitKey(33)
+            # just log ch to get key id pressed
+            if ch == 1048603:
                 break
 
 
