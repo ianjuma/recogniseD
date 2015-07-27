@@ -39,8 +39,29 @@ class App(object):
                 face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
                 face = cv2.resize(face, self.model.image_size,
                                   interpolation=cv2.INTER_CUBIC)
+
                 # Get a prediction from the model:
                 prediction = self.model.predict(face)[0]
+                # print self.model.predict(face)
+                predicted_label = self.model.predict(face)[0]
+                classifier_output = self.model.predict(face)[1]
+                # print classifier_output
+                distance = classifier_output['distances'][0]
+                print distance
+
+                # thresholding prediction values
+                if distance > 10.0:
+                    print "Unknown Person!"
+                else:
+                    print "Person is known with label %i" % (predicted_label)
+
+                # distance = classifier_output['distances'][0]
+                # print distance
+
+                # Now you can easily threshold by it:
+                # if distance > 10.0:
+                #     print "Unknown Person!"
+
                 # class_list = set([1, 2, 3, 4]) - from the folders db-level
                 attendees = set([])
 
