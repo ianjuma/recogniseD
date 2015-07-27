@@ -9,11 +9,11 @@ Dependencies
 * `matplotlib <http://matplotlib.org/>`_
 
 
-# Redis
-# Load class set from redis -> compare class set to recognised class set
- IST_4900_class: [633917, 768943, 4354335, 4543464, 43435643, 538772]
- IST_4900_recognised: [633917, 768943, 538772]
+### Redis
 
- send SMS - class missed? diff in the sets
- generate pdf ? - class missed status
+- Load class set from redis -> compare class set to recognised class set
+-  IST_4900_class: [633917, 768943, 4354335, 4543464, 43435643, 538772]
+- IST_4900_recognised: [633917, 768943, 538772]
 
+- send SMS - class missed? diff in the sets
+- generate pdf ? - class missed status
