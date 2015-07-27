@@ -1,7 +1,7 @@
 Dependencies
 ************
 
-`face-rec <https://github.com/bytefish/facerec>`_ has dependencies to:
+`recogniseD <https://github.com/ianjuma/recogniseD>`_ has dependencies to:
 
 * `PIL <http://www.pythonware.com/products/pil/>`_
 * `NumPy <http://www.numpy.org/>`_
