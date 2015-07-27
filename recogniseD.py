@@ -47,20 +47,6 @@ class App(object):
                 classifier_output = self.model.predict(face)[1]
                 # print classifier_output
                 distance = classifier_output['distances'][0]
-                print distance
-
-                # thresholding prediction values
-                if distance > 10.0:
-                    print "Unknown Person!"
-                else:
-                    print "Person is known with label %i" % (predicted_label)
-
-                # distance = classifier_output['distances'][0]
-                # print distance
-
-                # Now you can easily threshold by it:
-                # if distance > 10.0:
-                #     print "Unknown Person!"
 
                 # class_list = set([1, 2, 3, 4]) - from the folders db-level
                 attendees = set([])
@@ -71,14 +57,22 @@ class App(object):
                     last_face_recognised = self.model.subject_names[prediction]
                     print 'Attending -> %s', [attendees]
 
-                # grab prediction and store in redis - compare lists
-                # grab last face variable - only store in imgae var is diff -
-                # then add to list - grab date missed - count too
-                # Draw the face area in image:
-                cv2.rectangle(image_out, (x0, y0), (x1, y1), (0, 255, 0), 2)
-                # Draw the predicted name (folder name...):
-                draw_str(image_out, (
-                    x0 - 20, y0 - 20), self.model.subject_names[prediction])
+                # thresholding prediction values
+                if distance > 10.0:
+                    # grab prediction and store in redis - compare lists
+                    # grab last face variable - only store in imgae var is diff -
+                    # then add to list - grab date missed - count too
+                    # Draw the face area in image:
+                    cv2.rectangle(image_out, (x0, y0), (x1, y1), (0, 255, 0), 2)
+                    # Draw the predicted name (folder name...):
+                    draw_str(image_out, (
+                        x0 - 20, y0 - 20), "Unknown Person")
+                else:
+                    print "Person is known with label %i" % (predicted_label)
+                    cv2.rectangle(image_out, (x0, y0), (x1, y1), (0, 255, 0), 2)
+                    draw_str(image_out, (
+                        x0 - 20, y0 - 20),
+                        self.model.subject_names[prediction])
 
             cv2.imshow('recognised', image_out)
             # Show image & exit on escape:
