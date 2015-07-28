@@ -53,7 +53,6 @@ class App(object):
 
                 if last_face_recognised != self.model.subject_names[prediction]:
                     attendees.add(self.model.subject_names[prediction])
-                    print 'adding'
                     last_face_recognised = self.model.subject_names[prediction]
                     print 'Attending -> %s', [attendees]
 
