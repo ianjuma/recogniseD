@@ -57,7 +57,7 @@ class App(object):
                     print 'Attending -> %s', [attendees]
 
                 # thresholding prediction values
-                if distance > 10.0:
+                if distance > 1000.0:
                     # grab prediction and store in redis - compare lists
                     # grab last face variable - only store in imgae var is diff -
                     # then add to list - grab date missed - count too
