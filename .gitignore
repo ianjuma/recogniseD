@@ -12,6 +12,7 @@
 
 # Node modules
 node_modules/
+web
 
 # Bower components
 static/bower_components/
