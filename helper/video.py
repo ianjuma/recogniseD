@@ -8,7 +8,7 @@ import common
 class VideoSynthBase(object):
     def __init__(self, size=None, noise=0.0, bg=None, **params):
         self.bg = None
-        self.frame_size = (640, 480)
+        self.frame_size = (1280, 960)
         if bg is not None:
             self.bg = cv2.imread(bg, 1)
             h, w = self.bg.shape[:2]

@@ -1,5 +1,5 @@
 '''
-This module contais some common routines used by other samples.
+This module contains some common routines.
 '''
 
 import numpy as np
